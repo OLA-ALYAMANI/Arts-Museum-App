@@ -1,0 +1,31 @@
+{
+  "name": "arts_museum_app",
+  "version": "1.0.0",
+  "description": "You will be creating a full stack application using NodeJS and NoSQL.",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.generalassemb.ly/JaAlSaDev/project_2.git"
+  },
+  "author": "Jaber Alsalamah, Lujen Babunji, and Ola ALYamani",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.17.0",
+    "express-validator": "^6.4.0",
+    "formidable": "^1.2.2",
+    "method-override": "^3.0.0",
+    "moment": "^2.24.0",
+    "mongoose": "^5.9.6",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  }
+}
