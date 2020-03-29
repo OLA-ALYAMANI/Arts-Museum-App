@@ -60,7 +60,8 @@ mongoose.connect(
         next();
     });
 
-    // app.use(authRoutes)
+
+    //app.use(authRoutes)
 
 }
 
