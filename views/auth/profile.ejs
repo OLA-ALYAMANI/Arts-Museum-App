@@ -1,0 +1,31 @@
+<h1>Profile</h1>
+
+<section>
+    <h2>Account Info: </h2>
+
+    <%= currentUser._id %>
+    <div>
+        <label for="">First Name: </label>
+        <%= currentUser.firstName %>
+    </div>
+
+    <div>
+        <label for="">Last Name: </label>
+        <%= currentUser.lastName %>
+    </div>
+
+    <div>
+        <label for="">Email: </label>
+        <%= currentUser.email %>
+    </div>
+</section>
+
+
+<button>
+    <a href="/auth/editPassword">Change Password</a>
+</button>
+
+
+<section>
+    <h2>Booked Tours:</h2>
+</section>

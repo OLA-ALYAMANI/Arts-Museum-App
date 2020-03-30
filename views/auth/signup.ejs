@@ -1,0 +1,34 @@
+<form method="POST" action="/auth/signup">
+    <div>
+        <label>User Type</label>
+        <select name="type">
+            <option value="regular">Regular User</option>
+            <option value="tourGuide">Tour Guide</option>
+            <option value="admin">Admin</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="">First Name</label>
+        <input name="firstName" type="text">
+    </div>
+
+    <div>
+        <label for="">Last Name</label>
+        <input name="lastName" type="text">
+    </div>
+
+    <div>
+        <label for="">Email</label>
+        <input name="email" type="email">
+    </div>
+
+    <div>
+        <label for="">Password</label>
+        <input name="password" type="password">
+    </div>
+
+    <div>
+        <button type="submit">Sign Up</button>
+    </div>
+</form>

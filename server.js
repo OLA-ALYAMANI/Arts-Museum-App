@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express')
 const mongoose = require('mongoose')
 const expressLayouts = require('express-ejs-layouts')
-// const authRoutes = require('./routes/auth.routes')
+const authRoutes = require('./routes/auth.routes')
 const session = require("express-session");
 const flash = require("connect-flash");
 let passport = require("./helper/ppConfig");
@@ -61,7 +61,7 @@ mongoose.connect(
     });
 
 
-    //app.use(authRoutes)
+    app.use(authRoutes)
 
 }
 
