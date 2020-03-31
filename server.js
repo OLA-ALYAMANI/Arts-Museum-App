@@ -8,6 +8,7 @@ const session = require("express-session");
 const flash = require("connect-flash");
 let passport = require("./helper/ppConfig");
 const artItemRoute = require('./routes/artItems.routes');
+const toutRoutes = require('./routes/tours.routes')
 const PORT = process.env.PORT;
 
 const app = express();
@@ -65,6 +66,8 @@ mongoose.connect(
 
     app.use(authRoutes)
     app.use(artItemRoute);
+    app.use(toutRoutes)
+    
 }
 app.get('*', (req, res) => {
     res.send("doesn't exit yet!")

@@ -1,0 +1,50 @@
+<!-- Show tour page -->
+<div>
+    <div>
+        <h3>About the musem tours</h3>
+        <p>You can peck one of tours you want</p>
+    </div>
+</div>
+
+<br>
+<div>
+    <h3>Available Tour</h3>
+</div>
+
+<% if (currentUser && currentUser.type == "admin") { %>
+<button>
+    <a href="/tours/create">Create</a>
+</button>
+<% } %>
+
+<div>
+    <% tours.forEach(function(tour) { %>
+    <div>
+        <div>
+            <label>Title:</label>
+            <%= tour.title %>
+        </div>
+        <div>
+            <label>Description:</label>
+            <div><%= tour.description %></div>
+        </div>
+        <div>
+            <label>Tour Guide:</label>
+            <%=tour.tourGuide.firstName%> <%=tour.tourGuide.lastName%>
+        </div>
+        <div>
+            <label>Date:</label>
+            <%= tour.date %>
+        </div>
+        <!-- show onle for admin onle -->
+        <% if(currentUser && currentUser.type === "admin"){ %>
+        <div>
+            <a href="/tours/<%= tour._id %>">Explore</a>
+        </div>
+        <% } %>
+        <!-- This button will show for othor user -->
+        <!-- <a href="/tours/<%= tour._id %>/book">Book Tour</a> -->
+    </div>
+    <hr>
+    <% }) %>
+</div>

@@ -1,0 +1,34 @@
+<div><h2>Edit tour<h2></div>
+
+    <form action="/tours/<%=tour._id%>/edit" method="POST">
+        <div>
+            <lable>Title</lable>
+            <input type="text" name="title" value="<%=tour.title%>">
+        </div>
+        <br>
+        <div>
+            <lable>Description</lable>
+            <textarea type="text" name="description" value="<%=tour.description%>"></textarea>
+        </div>
+        <br>
+        <div>
+            <label for="">Tour Guide: </label>
+            <select name="tourGuide" id="">
+                <%tourGuides.forEach(function(guide){ %>
+                    <% if(tour.tourGuide._id === guide._id) { %>
+                <option value="<%=guide._id%>" selected="selected"><%=guide.firstName%> <%=guide.lastName%></option>
+                <% }else{ %>
+                    <option value="<%=guide._id%>"><%=guide.firstName%> <%=guide.lastName%></option>
+               <% } %>
+                <%})%>
+            </select>
+        </div>
+        <br>
+        <div>
+            <lable>Date</lable>
+            <input type="date" name="date" value="<%=tour.date%>">
+        </div>
+        <br>
+        <button type="submit" value="Edit">Edit</button>
+    
+    </form>    
