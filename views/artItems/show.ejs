@@ -1,0 +1,43 @@
+<div>
+    <h2>Art Item<h2>
+</div>
+
+<div>
+    <img src="<%=artitem.imgSrc%>" height="200px" width="150px">
+</div>
+
+<div>
+    <label>Title: </label>
+    <%=artitem.name%>
+</div>
+
+<div>
+    <label>Artist: </label>
+    <%=artitem.artistName%>
+</div>
+
+<div>
+    <label>Description: </label>
+    <%=artitem.description%>
+</div>
+
+<div>
+    <label>Year: </label>
+    <%=artitem.year%>
+</div>
+
+<div>
+    <label>Location: </label>
+    <%=artitem.location%>
+</div>
+
+<% if (currentUser && currentUser.type == "admin") { %>
+
+<button>
+    <a href="/artitems/<%= artitem._id %>/edit">Edit</a>
+</button>
+
+<form method="POST" action="/artitems/<%= artitem._id %>/delete?_method=DELETE">
+    <button type="submit" value="DELETE">Delete</button>
+</form>
+<% } %>

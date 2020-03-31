@@ -1,0 +1,38 @@
+<div><h2>Edit Art Item<h2></div>
+
+<form action="/artitems/<%=artitem._id%>/edit" method="POST">
+
+    <div>
+        <img src="<%=artitem.imgSrc%>" height="200px" width="150px">
+    </div>
+    
+    <div>
+        <label>Title: </label>
+        <input type="text" name="name" value="<%=artitem.name%>" />
+    </div>
+
+    <div>
+        <label>Artist: </label>
+        <input type="text" name = "artistName" value="<%=artitem.artistName%>" />
+    </div>
+    
+    <div>
+        <label>Description: </label>
+        <textarea name="description" value="<%=artitem.description%>"></textarea>
+    </div>
+    
+    <div>
+        <label>Year: </label>
+        <input type="text" name = "year" value="<%=artitem.year%>" />
+    </div>
+    
+    <div>
+        <label>Location: </label>
+        <input type="text" name = "location" value="<%=artitem.location%>" />
+    </div>
+
+    <button type="submit" value="Edit">Edit</button>
+
+</form>
+
+

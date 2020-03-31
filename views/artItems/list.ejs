@@ -1,0 +1,35 @@
+<div>
+    <h2>Art Items<h2>
+</div>
+
+<% if (currentUser && currentUser.type == "admin") { %>
+<button>
+    <a href="/artitems/add">Add Art Item</a>
+</button>
+<% } %>
+
+<% artitems.forEach(function(artitem){ %>
+
+<form action="/artitems/show" enctype="multipart/form-data">
+
+    <div>
+        <img class="artImage" src="<%=artitem.imgSrc%>">
+    </div>
+
+    <div>
+        <label>Title: </label>
+        <%=artitem.name%>
+    </div>
+
+    <div>
+        <label>Artist: </label>
+        <%=artitem.artistName%>
+    </div>
+
+    <button>
+        <a href="/artitems/<%=artitem._id%>">Explore</a>
+    </button>
+
+</form>
+
+<% }) %>

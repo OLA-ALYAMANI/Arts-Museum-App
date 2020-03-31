@@ -1,0 +1,36 @@
+<h1>Search</h1>
+
+<form method="POST" action="/artitems/search">
+
+    <div>
+        <label for="">By Artist: </label>
+        <select name="artistName" id="">
+            <option value="None" selected="selected">None</option>
+            <%artistNames.forEach(function(artitem){ %>
+            <option value="<%=artitem%>"><%=artitem%></option>
+            <%})%>
+        </select>
+    </div>
+
+    <div>
+        <label for="">By Year: </label>
+        <select name="year" id="">
+            <option value="None" selected="selected">None</option>
+            <% years.forEach(function(year){ %>
+            <option value="<%=year%>"><%=year%></option>
+            <%})%>
+        </select>
+    </div>
+
+    <div>
+        <label for="">By Location: </label>
+        <select name="location" id="">
+            <option value="None" selected="selected">None</option>
+            <% locations.forEach(function(location){ %>
+            <option value="<%=location%>"><%=location%></option>
+            <%})%>
+        </select>
+    </div>
+
+    <button type="submit">Search</button>
+</form>

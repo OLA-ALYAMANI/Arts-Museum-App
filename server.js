@@ -7,9 +7,12 @@ const authRoutes = require('./routes/auth.routes')
 const session = require("express-session");
 const flash = require("connect-flash");
 let passport = require("./helper/ppConfig");
+const artItemRoute = require('./routes/artItems.routes');
 const PORT = process.env.PORT;
 
 const app = express();
+
+
 
 mongoose.connect(
     process.env.mongoDBURL,
@@ -60,13 +63,9 @@ mongoose.connect(
         next();
     });
 
-
     app.use(authRoutes)
-
+    app.use(artItemRoute);
 }
-
-
-
 app.get('*', (req, res) => {
     res.send("doesn't exit yet!")
 })
