@@ -1,37 +1,65 @@
-<div><h2>Add Art Item<h2></div>
+<div class="container">
+    <h1 class="mt-4 mb-3">Add Art Item:</h1>
 
-<form method="POST" action="/artitems/add" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-lg-8 col-sm-6 art-item">
+            <div class="card h-100">
 
-<div>
-    <label>Image: </label>
-    <input type="file" name="imgSrc">
+                <form method="POST" action="/artitems/add" enctype="multipart/form-data">
+                    <div class="card-body">
+
+                        <div class="controls">
+                            <label>Image:</label>
+                            <div class="input-group mb-3">
+                                <div class="custom-file">
+                                    <input type="file" name="imgSrc" class="custom-file-input" id="inputGroupFile02">
+                                    <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="">Upload</span>
+                                </div>
+                            </div>
+                            <p class="help-block"></p>
+                        </div>
+
+                        <div class="controls">
+                            <label>Title:</label>
+                            <input type="text" class="form-control" name="name" />
+                            <p class="help-block"></p>
+                        </div>
+
+                        <div class="controls">
+                            <label>Artist:</label>
+                            <input type="text" class="form-control" name="artistName" />
+                            <p class="help-block"></p>
+                        </div>
+
+                        <div class="controls">
+                            <label>Description:</label>
+                            <textarea name="description" rows="10" cols="100" class="form-control" id="message"
+                                maxlength="999" style="resize:none"></textarea>
+                            <p class="help-block"></p>
+
+                        </div>
+
+                        <div class="controls">
+                            <label>Year:</label>
+                            <input type="text" class="form-control" name="year" />
+                            <p class="help-block"></p>
+                        </div>
+
+                        <div class="controls">
+                            <label>Location:</label>
+                            <input type="text" class="form-control" name="location" />
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+
+                    <div class="card-footer text-center">
+                        <button class="btn btn-info btn-block" type="submit">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-
-<div>
-    <label>Title: </label>
-    <input type="text" name="name" />
-</div>
-
-<div>
-    <label>Artist: </label>
-    <input type="text" name = "artistName" />
-</div>
-
-<div>
-    <label>Description: </label>
-    <textarea name="description"></textarea>
-</div>
-
-<div>
-    <label>Year: </label>
-    <input type="text" name = "year" />
-</div>
-
-<div>
-    <label>Location: </label>
-    <input type="text" name = "location" />
-</div>
-
-<button type="submit">Add</button>
-
-</form>

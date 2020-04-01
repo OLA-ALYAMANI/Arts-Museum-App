@@ -1,35 +1,61 @@
-<div>
-    <h2>Art Items<h2>
+<div class="container">
+    <h1 class="mt-4 mb-3">Art Items:</h1>
+
+    <div class="text-center">
+        <% if (currentUser && currentUser.type == "admin") { %>
+        <a class="btn btn-info btn-block" href="/artitems/add">Add Art Item</a>
+        <% } %>
+        <p class="help-block"></p>
+    </div>
+
+    <img class="img-fluid rounded mb-4" src="http://placehold.it/1200x300" alt="">
+
+    <div class="text-center">
+        <div class="row">
+            <% artitems.forEach(function(artitem){ %>
+            <div class="col-lg-4 col-sm-6 art-item">
+                <div class="card h-100">
+                    <form action="/artitems/show" enctype="multipart/form-data">
+                        <img class="card-img-top" src="<%=artitem.imgSrc%>" height="300" width="400">
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <h4 class="card-title"><%=artitem.name%></h4>
+                                <li class="list-group-item">Artist: <%=artitem.artistName%></li>
+                            </ul>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a class="btn btn-info btn-block" href="/artitems/<%=artitem._id%>">Explore</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <!-- Pagination -->
+    <ul class="pagination justify-content-center">
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">3</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+            </a>
+        </li>
+    </ul>
+
 </div>
-
-<% if (currentUser && currentUser.type == "admin") { %>
-<button>
-    <a href="/artitems/add">Add Art Item</a>
-</button>
-<% } %>
-
-<% artitems.forEach(function(artitem){ %>
-
-<form action="/artitems/show" enctype="multipart/form-data">
-
-    <div>
-        <img class="artImage" src="<%=artitem.imgSrc%>">
-    </div>
-
-    <div>
-        <label>Title: </label>
-        <%=artitem.name%>
-    </div>
-
-    <div>
-        <label>Artist: </label>
-        <%=artitem.artistName%>
-    </div>
-
-    <button>
-        <a href="/artitems/<%=artitem._id%>">Explore</a>
-    </button>
-
-</form>
-
-<% }) %>

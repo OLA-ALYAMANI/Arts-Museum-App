@@ -1,38 +1,55 @@
-<div><h2>Edit Art Item<h2></div>
+<div class="container">
+    <h1 class="mt-4 mb-3">Edit Art Item:</h1>
 
-<form action="/artitems/<%=artitem._id%>/edit" method="POST">
 
-    <div>
-        <img src="<%=artitem.imgSrc%>" height="200px" width="150px">
+    <div class="row">
+        <div class="col-lg-8 col-sm-6 art-item">
+            <div class="card h-100">
+
+                <form action="/artitems/<%=artitem._id%>/edit" method="POST">
+
+                    <img class="card-img-top" src="<%=artitem.imgSrc%>" height="300" width="400">
+
+                    <div class="card-body">
+
+                        <div class="controls">
+                            <label>Title:</label>
+                            <input type="text" class="form-control" name="name" value="<%=artitem.name%>" />
+                            <p class="help-block"></p>
+                        </div>
+
+                        <div class="controls">
+                            <label>Artist:</label>
+                            <input type="text" class="form-control" name="artistName" value="<%=artitem.artistName%>" />
+                            <p class="help-block"></p>
+                        </div>
+
+                        <div class="controls">
+                            <label>Description:</label>
+                            <textarea name="description" value="<%=artitem.description%>" rows="10" cols="100"
+                                class="form-control" id="message" maxlength="999" style="resize:none"></textarea>
+                            <p class="help-block"></p>
+
+                        </div>
+
+                        <div class="controls">
+                            <label>Year:</label>
+                            <input type="text" class="form-control" name="year" value="<%=artitem.year%>" />
+                            <p class="help-block"></p>
+                        </div>
+
+                        <div class="controls">
+                            <label>Location:</label>
+                            <input type="text" class="form-control" name="location" value="<%=artitem.location%>" />
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+
+                    <div class="card-footer text-center">
+                        <button class="btn btn-info btn-block" type="submit" value="Edit">Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    
-    <div>
-        <label>Title: </label>
-        <input type="text" name="name" value="<%=artitem.name%>" />
-    </div>
-
-    <div>
-        <label>Artist: </label>
-        <input type="text" name = "artistName" value="<%=artitem.artistName%>" />
-    </div>
-    
-    <div>
-        <label>Description: </label>
-        <textarea name="description" value="<%=artitem.description%>"></textarea>
-    </div>
-    
-    <div>
-        <label>Year: </label>
-        <input type="text" name = "year" value="<%=artitem.year%>" />
-    </div>
-    
-    <div>
-        <label>Location: </label>
-        <input type="text" name = "location" value="<%=artitem.location%>" />
-    </div>
-
-    <button type="submit" value="Edit">Edit</button>
-
-</form>
-
-
+</div>
