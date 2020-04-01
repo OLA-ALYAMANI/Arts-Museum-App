@@ -89,4 +89,23 @@ router.delete('/tours/:id/delete', isLoggedIn, (req, res) => {
   })
 })
 
+//Edit route
+router.post('/tours/:id/book', (req, res) => {
+  console.log("it's working!")
+  
+  User.findByIdAndUpdate(req.user._id, {$addToSet: {bookedTours: req.params.id}}, { new: true }, (err, updatedDocument) => {
+    console.log("it's working!")
+    res.redirect(req.get('referer'));
+  })
+})
+
+router.post('/tours/:id/cancel', (req, res) => {
+  console.log("it's working!")
+  
+  User.findByIdAndUpdate(req.user._id, {$pull: {bookedTours: req.params.id}}, { new: true }, (err, updatedDocument) => {
+    console.log("it's working!")
+    res.redirect(req.get('referer'));
+  })
+})
+
 module.exports = router

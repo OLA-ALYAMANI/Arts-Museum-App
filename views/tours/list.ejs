@@ -37,13 +37,24 @@
             <%= tour.date %>
         </div>
         <!-- show onle for admin onle -->
-        <% if(currentUser && currentUser.type === "admin"){ %>
-        <div>
-            <a href="/tours/<%= tour._id %>">Explore</a>
-        </div>
+        <% if(currentUser){ %>
+            <% if(currentUser.type === "admin"){ %>
+                <button>
+                    <a href="/tours/<%= tour._id %>">Explore</a>
+                </button>
+            <% } else if(currentUser.type === "regular"){%>
+                <% if (!currentUser.bookedTours.includes(tour._id)){ %>
+                <form method="POST" action="/tours/<%= tour._id %>/book">
+                    <button type="submit">Book Tour</button>
+                </form>
+                <% } else {%>
+                    <form method="POST" action="/tours/<%= tour._id %>/cancel">
+                        <button type="submit">Cancel Tour</button>
+                    </form>
+                <%}%>
+            <% } %>
+
         <% } %>
-        <!-- This button will show for othor user -->
-        <!-- <a href="/tours/<%= tour._id %>/book">Book Tour</a> -->
     </div>
     <hr>
     <% }) %>

@@ -2,8 +2,6 @@
 
 <section>
     <h2>Account Info: </h2>
-
-    <%= currentUser._id %>
     <div>
         <label for="">First Name: </label>
         <%= currentUser.firstName %>
@@ -25,7 +23,32 @@
     <a href="/auth/editPassword">Change Password</a>
 </button>
 
-
+<%if(currentUser.type === "regular"){%>
+<h2>Booked Tours:</h2>
+    <% bookedTours.forEach(function(tour) { %>
 <section>
-    <h2>Booked Tours:</h2>
+        <div>
+            <label>Title:</label>
+            <%= tour.title %>
+        </div>
+        <div>
+            <label>Description:</label>
+            <div><%= tour.description %></div>
+        </div>
+        <div>
+            <label>Tour Guide:</label>
+            <%=tour.tourGuide.firstName%> <%=tour.tourGuide.lastName%>
+        </div>
+        <div>
+            <label>Date:</label>
+            <%= tour.date %>
+        </div>
+
+        <form method="POST" action="/tours/<%= tour._id %>/cancel">
+            <button type="submit">Cancel Tour</button>
+        </form>
+    <hr>
+   
 </section>
+    <% }) %>
+<% } %>

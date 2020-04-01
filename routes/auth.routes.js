@@ -94,7 +94,12 @@ router.get("/auth/signout", (req, res) => {
 //Profile route
 router.get("/auth/profile", isLoggedIn, (req, res) => {
     console.log("profile user: " + req.user)
-    res.render("auth/profile");
+
+    User.findById(req.user._id).populate({path: 'bookedTours'}).then(user => {
+        console.log("booked tours: "+user.bookedTours)
+        res.render("auth/profile", {bookedTours: user.bookedTours});
+    })
+
 })
 
 //Change password routes
@@ -129,7 +134,7 @@ router.get("/auth/profile", isLoggedIn, (req, res) => {
                     user.updatePassword(body.newPassword);
 
                     user.save()
-                    
+
                     redirectionLink = "/auth/profile";
                     message = "Password has been changed.";
                     messageType = "success";
