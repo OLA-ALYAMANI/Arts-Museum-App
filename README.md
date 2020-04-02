@@ -16,9 +16,9 @@ Technology refers to the medium that the rest of the app elements take place in
   - Express and mongodb: Website databases.
 
 # Wireframes
-- Home Page
+## Home Page
 
-- sign Pages
+## sign Pages
 
 
 
@@ -31,7 +31,6 @@ Technology refers to the medium that the rest of the app elements take place in
 -
 -
 ## Solution:
--
 -
 -
 -
