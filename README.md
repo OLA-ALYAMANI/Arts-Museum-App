@@ -17,7 +17,19 @@ Technology refers to the medium that the rest of the app elements take place in
 
 # Wireframes
 ## Home Page
+![home](https://media.git.generalassemb.ly/user/26796/files/e3a8e780-74c8-11ea-93c1-57c502b3c083)
 
+## Art list Page (As admin)
+![Art Page](https://media.git.generalassemb.ly/user/26796/files/4bf7c900-74c9-11ea-80c5-3f1635a7410f)
+
+## Art list Page (As a regular user)
+![Art Page as regular](https://media.git.generalassemb.ly/user/26796/files/038cdb00-74ca-11ea-9e1d-569c6db07981)
+
+## Show Page (As admin)
+![Show Page as admin](https://media.git.generalassemb.ly/user/26796/files/a47b9600-74ca-11ea-8d34-c5b59301f13c)
+
+## Show Page (As a regular user)
+![Show Page as regular](https://media.git.generalassemb.ly/user/26796/files/c543eb80-74ca-11ea-9787-c9f8211eacb4)
 ## sign Pages
 
 
