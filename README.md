@@ -30,7 +30,9 @@ Technology refers to the medium that the rest of the app elements take place in
 
 ## Show Page (As a regular user)
 ![Show Page as regular](https://media.git.generalassemb.ly/user/26796/files/c543eb80-74ca-11ea-9787-c9f8211eacb4)
-## sign Pages
+
+## Add a new Art
+![Add Art](https://media.git.generalassemb.ly/user/26796/files/49966e80-74cb-11ea-8040-f6c2bc66cdae)
 
 
 
