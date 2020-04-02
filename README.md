@@ -37,7 +37,7 @@ Technology refers to the medium that the rest of the app elements take place in
 
 
 
-# 6- Bugs and Errors
+# 3- Bugs and Errors
 
 ## Error:
 -
@@ -50,7 +50,7 @@ Technology refers to the medium that the rest of the app elements take place in
 -
 -
 
-# 7- Development Team
+# 4- Development Team
 - Jaber Alsalamah
 - Lujen Babunji
 - Ola AlYamani
