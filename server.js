@@ -5,11 +5,12 @@ const mongoose = require('mongoose')
 const expressLayouts = require('express-ejs-layouts')
 const authRoutes = require('./routes/auth.routes')
 const session = require("express-session");
+const MongoStore = require('connect-mongo')(session)
 const flash = require("connect-flash");
 let passport = require("./helper/ppConfig");
 const artItemRoute = require('./routes/artItems.routes');
 const toutRoutes = require('./routes/tours.routes')
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 
@@ -46,6 +47,7 @@ mongoose.connect(
             secret: process.env.SECRET,
             saveUninitialized: true,
             resave: false,
+            store: new MongoStore({ url : process.env.mongoDBURL })
             // cookie: { maxAge: 360000 }  //If omitted, the session will last till the user logs outs
         }))
 
@@ -70,7 +72,7 @@ mongoose.connect(
     
 }
 app.get('*', (req, res) => {
-    res.send("doesn't exit yet!")
+    res.send("404 Page not found!")
 })
 
 app.listen(PORT, () => console.log(`Express running on ${PORT}`))

@@ -1,34 +1,49 @@
-<div><h2>Edit tour<h2></div>
+<div class="container">
+    <h1 class="mt-4 mb-3"></h1>
 
-    <form action="/tours/<%=tour._id%>/edit" method="POST">
-        <div>
-            <lable>Title</lable>
-            <input type="text" name="title" value="<%=tour.title%>">
+    <div class="row justify-content-md-center">
+        <div class="col-lg-8 col-sm-6 art-item">
+            <div class="card h-100">
+                <h4 class="card-header text-center">Edit tour</h4>
+                <form action="/tours/<%=tour._id%>/edit" method="POST">
+
+                    <div class="card-body">
+                        <div class="controls">
+                            <label>Title:</label>
+                            <input type="text" class="form-control" name="title" value="<%=tour.title%>" />
+                            <p class="help-block"></p>
+                        </div>
+                        <div class="controls">
+                            <label>Description:</label>
+                            <textarea name="description" value="<%=tour.description%>" rows="10" cols="100"
+                                class="form-control" id="message" maxlength="999" style="resize:none"></textarea>
+                            <p class="help-block"></p>
+                        </div>
+                        <div class="controls">
+                            <label>Tour Guide: </label>
+                            <select class="form-control" name="tourGuide">
+                                <%tourGuides.forEach(function(guide){ %>
+                                <% if(tour.tourGuide._id === guide._id) { %>
+                                <option value="<%=guide._id%>" selected="selected"><%=guide.firstName%>
+                                    <%=guide.lastName%></option>
+                                <% }else{ %>
+                                <option value="<%=guide._id%>"><%=guide.firstName%> <%=guide.lastName%></option>
+                                <% } %>
+                                <%})%>
+                            </select>
+                            <p class="help-block"></p>
+                        </div>
+                        <div class="controls">
+                            <label>Date:</label>
+                            <input class="form-control" type="date" name="date" value="<%=tour.date%>" />
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-info btn-block" type="submit" value="Edit">Edit</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <br>
-        <div>
-            <lable>Description</lable>
-            <textarea type="text" name="description" value="<%=tour.description%>"></textarea>
-        </div>
-        <br>
-        <div>
-            <label for="">Tour Guide: </label>
-            <select name="tourGuide" id="">
-                <%tourGuides.forEach(function(guide){ %>
-                    <% if(tour.tourGuide._id === guide._id) { %>
-                <option value="<%=guide._id%>" selected="selected"><%=guide.firstName%> <%=guide.lastName%></option>
-                <% }else{ %>
-                    <option value="<%=guide._id%>"><%=guide.firstName%> <%=guide.lastName%></option>
-               <% } %>
-                <%})%>
-            </select>
-        </div>
-        <br>
-        <div>
-            <lable>Date</lable>
-            <input type="date" name="date" value="<%=tour.date%>">
-        </div>
-        <br>
-        <button type="submit" value="Edit">Edit</button>
-    
-    </form>    
+    </div>
+</div>

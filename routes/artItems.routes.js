@@ -4,10 +4,25 @@ const moment = require("moment");
 const ArtItem = require("../models/artItem.model.js");
 const isLoggedIn = require("../helper/isLoggedIn");
 const formidable = require('formidable');
+
 const fs = require('fs');
 
 const expressLayouts = require('express-ejs-layouts');
 const methodOverride = require('method-override');
+
+const multer = require("multer");
+const path = require("path");
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "public/images");
+  },
+  filename: function (req, file, cb) {
+    let fileExtension = path.extname(file.originalname).split(".")[1];
+    cb(null, file.fieldname + "-" + Date.now() + "." + fileExtension);
+  }
+});
+var upload = multer({ storage: storage });
+
 
 const router = express.Router();
 
@@ -29,9 +44,7 @@ router.get('/artitems/list', (req, res) => {
 
   ArtItem.find().then(artitems => {
 
-    res.render("artitems/list", { artitems })
-  }).catch(err => {
-    console.log(err)
+    res.render("artItems/list", { artitems })
   })
 });
 
@@ -45,7 +58,7 @@ router.get('/artitems/list', (req, res) => {
       ArtItem.collection.distinct('year'),
       ArtItem.collection.distinct('location')
     ]).then(([artistNames, years, locations]) => {
-      res.render("artitems/search", { artistNames, years, locations });
+      res.render("artItems/search", { artistNames, years, locations });
     });
 
 
@@ -61,95 +74,62 @@ router.get('/artitems/list', (req, res) => {
         }
       }
     }
-    
+
     ArtItem.find(req.body).then(artitems => {
-      res.render("artitems/list", { artitems })
-    }).catch(err => {
-      console.log(err)
+      res.render("artItems/list", { artitems })
     })
   });
 }
 
 router.get("/artitems/add", isLoggedIn, (req, res) => {
-  res.render("artitems/add");
+  res.render("artItems/add");
 });
 
 
-router.post("/artitems/add", isLoggedIn, (req, res) => {
+router.post("/artitems/add", isLoggedIn, upload.single("imgSrc"), (req, res, next) => {
+  const file = req.file;
 
-  var form = new formidable.IncomingForm();
-  form.parse(req, function (err, fields, files) {
+  if (!file) {
+    const error = new Error("Please upload a file");
+    error.httpStatusCode = 400;
+    return next(error);
+  }
 
-    var oldpath = files.imgSrc.path;
-    var imagPath = '/images/' + files.imgSrc.name;
-    var uploadpath = './public/images/' + files.imgSrc.name;
+  let artItem = new ArtItem(req.body);
 
-    fs.rename(oldpath, uploadpath, function (err) {
-      if (err) throw err;
-      else {
-        fields.imgSrc = imagPath;
+  artItem.imgSrc = "/images/" + file.filename;
 
-
-        let artItem = new ArtItem(fields);
-
-        artItem
-          .save()
-          .then(() => {
-            res.redirect("/artitems/list");
-          })
-          .catch(err => {
-            console.log(err);
-            res.send("Error!!!!!");
-          });
-      }
-    });
-  });
+  artItem
+    .save()
+    .then(() => {
+      res.redirect("/artitems/list");
+    })
 });
 
 
 router.get('/artitems/:id', (req, res) => {
-  console.log(req.params.id);
 
   ArtItem.findById(req.params.id).then(artitem => {
-    console.log(artitem)
-
-    res.render("artitems/show", { artitem });
+    res.render("artItems/show", { artitem });
   })
 })
 
 router.patch('/artitems/:id', (req, res) => {
-  res.render("artitems/list");
+  res.render("artItems/list");
 })
 
 
 {
   router.get('/artitems/:id/edit', (req, res) => {
     ArtItem.findById(req.params.id).then(artitem => {
-      console.log(artitem)
-
-      res.render("artitems/edit", { artitem });
+      res.render("artItems/edit", { artitem });
     })
   })
 
   router.post('/artitems/:id/edit', (req, res) => {
-    var form = new formidable.IncomingForm();
     let artitemID = req.params.id;
-    // console.log(artitemID);
-    // form.parse(req, function (err, fields, files) {
-
-    //   var oldpath = files.imgSrc.path;
-    //   var imagPath = '/images/' + files.imgSrc.name;
-    //   var uploadpath = './public/images/' + files.imgSrc.name;
-
-    //   fs.rename(oldpath, uploadpath, function (err) {
-    //     if (err) throw err;
-    //     else {
-    //       fields.imgSrc = imagPath;
-    //     }
-    //   });
-    // });
-
     let body = req.body;
+
     ArtItem.findByIdAndUpdate(artitemID, body, { new: true }, (err, updatedDocument) => {
       res.redirect("/artitems/list");
     })
@@ -157,8 +137,6 @@ router.patch('/artitems/:id', (req, res) => {
 }
 
 router.delete('/artitems/:id/delete', (req, res) => {
-  console.log(req.params.id);
-
   ArtItem.findByIdAndDelete(req.params.id).then(artitems => {
     res.redirect("/artitems/list")
   })

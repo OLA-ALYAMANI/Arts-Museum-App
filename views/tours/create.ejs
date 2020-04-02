@@ -1,33 +1,47 @@
+<div class="container">
+    <h1 class="mt-4 mb-3"></h1>
 
-<div>
-    <div>
-        <h3>Create Tour</h3>
+    <div class="row justify-content-md-center">
+        <div class="col-lg-8 col-sm-6 art-item">
+            <div class="card h-100">
+                <h4 class="card-header text-center">Create Tour</h4>
+                <form method="POST" action="/tours/create">
+                    <div class="card-body">
+                        <div class="controls">
+                            <label>Title:</label>
+                            <input type="text" class="form-control" name="title" />
+                            <p class="help-block"></p>
+                        </div>
+                        <div class="controls">
+                            <label>Description:</label>
+                            <textarea name="description" rows="10" cols="100" class="form-control" id="message"
+                                maxlength="999" style="resize:none"></textarea>
+                            <p class="help-block"></p>
+                        </div>
+                        <div class="controls">
+                            <label>Tour Guide: </label>
+                            <select class="form-control" name="tourGuide">
+                                <%tourGuides.forEach(function(tourGuide){ %>
+                                <option value="<%=tourGuide._id%>"><%=tourGuide.firstName%> <%=tourGuide.lastName%>
+                                </option>
+                                <%})%>
+                            </select>
+                            <p class="help-block"></p>
+                        </div>
+
+                        <div class="controls">
+                            <label>Date:</label>
+                            <input class="form-control" type="date" name="date" />
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-info btn-block" type="submit">Create Tour</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <form method="POST" action="/tours/create">
-        <div>
-            <lable>Title</lable>
-            <input type="text" name="title">
-        </div>
-        <br>
-        <div>
-            <lable>Description</lable>
-            <textarea type="text" name="description"></textarea>
-        </div>
-        <br>
-        <div>
-            <label for="">Tour Guide: </label>
-            <select name="tourGuide" id="">
-                <%tourGuides.forEach(function(tourGuide){ %>
-                <option value="<%=tourGuide._id%>"><%=tourGuide.firstName%> <%=tourGuide.lastName%></option>
-                <%})%>
-            </select>
-        </div>
-        <br>
-        <div>
-            <lable>Date</lable>
-            <input type="date" name="date">
-        </div>
-        <br>
-        <button type="submit">Create Tour</button>
-    </form>
 </div>
+
+

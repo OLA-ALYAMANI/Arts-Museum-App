@@ -1,54 +1,48 @@
-<h1>Profile</h1>
-
-<section>
-    <h2>Account Info: </h2>
-    <div>
-        <label for="">First Name: </label>
-        <%= currentUser.firstName %>
+<div class="container">
+    <h1 class="mt-4 mb-3"></h1>
+    <div class="row justify-content-md-center">
+        <div class="col-lg-8 col-sm-6 art-item">
+            <div class="card h-100">
+                <h4 class="card-header text-center">Account Info</h4>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">First Name: <%= currentUser.firstName %></li>
+                        <li class="list-group-item">Last Name: <%= currentUser.lastName %></li>
+                        <li class="list-group-item">Email Address: <%= currentUser.email %></li>
+                    </ul>
+                </div>
+                <div class="card-footer text-center">
+                    <a class="btn btn-info btn-block" href="/auth/editPassword">Change Password</a>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div>
-        <label for="">Last Name: </label>
-        <%= currentUser.lastName %>
-    </div>
-
-    <div>
-        <label for="">Email: </label>
-        <%= currentUser.email %>
-    </div>
-</section>
-
-
-<button>
-    <a href="/auth/editPassword">Change Password</a>
-</button>
-
-<%if(currentUser.type === "regular"){%>
-<h2>Booked Tours:</h2>
+    <%if(currentUser.type === "regular"){%>
     <% bookedTours.forEach(function(tour) { %>
-<section>
-        <div>
-            <label>Title:</label>
-            <%= tour.title %>
+    <section>
+        <div class="row justify-content-md-center">
+            <div class="col-lg-8 col-sm-6 art-item">
+                <div class="card h-100">
+                    <h4 class="card-header text-center">Booked Tour</h4>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Title: <%= tour.title %></li>
+                            <li class="list-group-item">Description: <%= tour.description %></li>
+                            <li class="list-group-item">Tour Guide: <%=tour.tourGuide.firstName%>
+                                <%=tour.tourGuide.lastName%></li>
+                            <li class="list-group-item">Date: <%= tour.date %></li>
+                        </ul>
+                    </div>
+                    <div class="card-footer text-center">
+                        <form method="POST" action="/tours/<%= tour._id %>/cancel">
+                            <button class="btn btn-info btn-block" type="submit">Cancel Tour</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <label>Description:</label>
-            <div><%= tour.description %></div>
-        </div>
-        <div>
-            <label>Tour Guide:</label>
-            <%=tour.tourGuide.firstName%> <%=tour.tourGuide.lastName%>
-        </div>
-        <div>
-            <label>Date:</label>
-            <%= tour.date %>
-        </div>
-
-        <form method="POST" action="/tours/<%= tour._id %>/cancel">
-            <button type="submit">Cancel Tour</button>
-        </form>
-    <hr>
-   
-</section>
+    </section>
     <% }) %>
-<% } %>
+    <% } %>
+</div>

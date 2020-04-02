@@ -24,8 +24,6 @@ router.get('/tours/list', (req, res) => {
 
     // List of tour
     res.render("tours/list", { tours })
-  }).catch(err => {
-    console.log(err)
   })
 });
 
@@ -34,32 +32,25 @@ router.get('/tours/create', isLoggedIn, (req, res) => {
   User.find({ type: "tourGuide" }).then(tourGuides => {
 
     res.render("tours/create", { tourGuides })
-  }).catch(err => {
-    console.log(err)
   })
 })
 
 router.post('/tours/create', (req, res) => {
-  console.log(req.body)
   let tours = new Tour(req.body)
 
   tours.save()
     .then(() => {
       res.redirect('/tours/list')
     })
-    .catch(err => {
-      console.log(err)
-    })
 })
 
 // Show the tour
 router.get('/tours/:id', (req, res) => {
-  console.log(req.params.id);
-
   Tour.findById(req.params.id).populate('tourGuide').then(tour => {
+
     console.log(tour)
 
-    res.render("tours/show", { tour });
+    res.render("tours/show", { tour, moment });
   })
 })
 
@@ -82,8 +73,6 @@ router.post('/tours/:id/edit', (req, res) => {
 
 // for delete the tours
 router.delete('/tours/:id/delete', isLoggedIn, (req, res) => {
-  console.log(req.params.id);
-
   Tour.findByIdAndDelete(req.params.id).then(tour => {
     res.redirect("/tours/list")
   })
@@ -91,19 +80,14 @@ router.delete('/tours/:id/delete', isLoggedIn, (req, res) => {
 
 //Edit route
 router.post('/tours/:id/book', (req, res) => {
-  console.log("it's working!")
-  
   User.findByIdAndUpdate(req.user._id, {$addToSet: {bookedTours: req.params.id}}, { new: true }, (err, updatedDocument) => {
-    console.log("it's working!")
     res.redirect(req.get('referer'));
   })
 })
 
 router.post('/tours/:id/cancel', (req, res) => {
-  console.log("it's working!")
   
   User.findByIdAndUpdate(req.user._id, {$pull: {bookedTours: req.params.id}}, { new: true }, (err, updatedDocument) => {
-    console.log("it's working!")
     res.redirect(req.get('referer'));
   })
 })

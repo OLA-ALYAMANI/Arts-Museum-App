@@ -1,34 +1,52 @@
-<form method="POST" action="/auth/signup">
-    <div>
-        <label>User Type</label>
-        <select name="type">
-            <option value="regular">Regular User</option>
-            <option value="tourGuide">Tour Guide</option>
-            <option value="admin">Admin</option>
-        </select>
-    </div>
+<div class="container">
+    <h1 class="mt-4 mb-3"></h1>
 
-    <div>
-        <label for="">First Name</label>
-        <input name="firstName" type="text">
-    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-lg-7 col-sm-6 art-item">
+            <div class="card h-100">
+                <form method="POST" action="/auth/signup">
+                    <h4 class="card-header text-center">Sign Up</h4>
+                    <div class="card-body">
+                        <div class="controls">
+                            <label>User Type: </label>
+                            <select class="form-control" name="type">
+                                <option value="regular">Regular User</option>
+                                <option value="tourGuide">Tour Guide</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                            <p class="help-block"></p>
+                        </div>
 
-    <div>
-        <label for="">Last Name</label>
-        <input name="lastName" type="text">
-    </div>
+                        <div class="controls">
+                            <label>First Name:</label>
+                            <input class="form-control" name="firstName" type="text" />
+                            <p class="help-block"></p>
+                        </div>
 
-    <div>
-        <label for="">Email</label>
-        <input name="email" type="email">
-    </div>
+                        <div class="controls">
+                            <label>Last Name:</label>
+                            <input class="form-control" name="lastName" type="text" />
+                            <p class="help-block"></p>
+                        </div>
 
-    <div>
-        <label for="">Password</label>
-        <input name="password" type="password">
-    </div>
+                        <div class="controls">
+                            <label>Email Address:</label>
+                            <input class="form-control" name="email" type="email" />
+                            <p class="help-block"></p>
+                        </div>
 
-    <div>
-        <button type="submit">Sign Up</button>
+                        <div class="controls">
+                            <label>Password:</label>
+                            <input class="form-control" name="password" type="password" />
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+
+                    <div class="card-footer text-center">
+                        <button class="btn btn-info btn-block" type="submit">Sign Up</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</form>
+</div>

@@ -1,16 +1,16 @@
 <div class="container">
-    <h1 class="mt-4 mb-3">Art Item:</h1>
-
-
-    <div class="text-center">
-        <div class="row">
-
+    <h1 class="mt-4 mb-3"></h1>
+    
+    <!-- <div class="text-center"> -->
+        <div class="row justify-content-md-center">
             <div class="col-lg-8 col-sm-6 art-item">
                 <div class="card h-100">
+                    <!-- <h4 class="card-header">Art Item</h4> -->
+                    <h4 class="card-header text-center">Art Item</h4>
                     <img class="card-img-top" src="<%=artitem.imgSrc%>" height="300" width="400">
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
-                            <h4 class="card-title"><%=artitem.name%></h4>
+                            <h4 class="card-title text-center"><%=artitem.name%></h4>
                             <li class="list-group-item">Artist: <%=artitem.artistName%></li>
                             <li class="list-group-item">Description: <%=artitem.description%></li>
                             <li class="list-group-item">Year: <%=artitem.year%></li>
@@ -36,10 +36,9 @@
                             </div>
 
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    <!-- </div> -->
 </div>

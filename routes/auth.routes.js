@@ -35,7 +35,6 @@ let salt = 10;
         ],
         (req, res) => {
             const errors = validationResult(req);
-            console.log(errors);
 
             if (!errors.isEmpty()) {
                 req.flash("autherror", errors.errors);
@@ -55,9 +54,7 @@ let salt = 10;
                     })(req, res);
                 })
                 .catch(err => {
-                    // console.log(err);
                     if (err.code == 11000) {
-                        console.log("Email already exists!");
                         req.flash("error", "Email already exists!");
                         return res.redirect("/auth/signup");
                     }
@@ -93,10 +90,8 @@ router.get("/auth/signout", (req, res) => {
 
 //Profile route
 router.get("/auth/profile", isLoggedIn, (req, res) => {
-    console.log("profile user: " + req.user)
 
-    User.findById(req.user._id).populate({path: 'bookedTours'}).then(user => {
-        console.log("booked tours: "+user.bookedTours)
+    User.findById(req.user._id).populate({path: 'bookedTours', populate:{path: 'tourGuide'}}).then(user => {
         res.render("auth/profile", {bookedTours: user.bookedTours});
     })
 
@@ -117,7 +112,6 @@ router.get("/auth/profile", isLoggedIn, (req, res) => {
         let messageType = "error";
 
         const errors = validationResult(req);
-        console.log(errors);
         if (!errors.isEmpty()) {
             messageType = "autherror";
 

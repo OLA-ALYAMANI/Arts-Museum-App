@@ -1,13 +1,13 @@
 <div class="container">
-    <h1 class="mt-4 mb-3">Add Art Item:</h1>
+    <h1 class="mt-4 mb-3"></h1>
 
-    <div class="row">
+    <div class="row justify-content-md-center">
         <div class="col-lg-8 col-sm-6 art-item">
             <div class="card h-100">
 
                 <form method="POST" action="/artitems/add" enctype="multipart/form-data">
+                    <h4 class="card-header text-center">Add Art Item</h4>
                     <div class="card-body">
-
                         <div class="controls">
                             <label>Image:</label>
                             <div class="input-group mb-3">
@@ -22,6 +22,13 @@
                             <p class="help-block"></p>
                         </div>
 
+                        <!-- <form>
+                            <div class="form-group">
+                              <label for="exampleFormControlFile1">Example file input</label>
+                              <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                            </div>
+                          </form> -->
+
                         <div class="controls">
                             <label>Title:</label>
                             <input type="text" class="form-control" name="name" />
@@ -33,28 +40,23 @@
                             <input type="text" class="form-control" name="artistName" />
                             <p class="help-block"></p>
                         </div>
-
                         <div class="controls">
                             <label>Description:</label>
                             <textarea name="description" rows="10" cols="100" class="form-control" id="message"
                                 maxlength="999" style="resize:none"></textarea>
                             <p class="help-block"></p>
-
                         </div>
-
                         <div class="controls">
                             <label>Year:</label>
                             <input type="text" class="form-control" name="year" />
                             <p class="help-block"></p>
                         </div>
-
                         <div class="controls">
                             <label>Location:</label>
                             <input type="text" class="form-control" name="location" />
                             <p class="help-block"></p>
                         </div>
                     </div>
-
                     <div class="card-footer text-center">
                         <button class="btn btn-info btn-block" type="submit">Add</button>
                     </div>

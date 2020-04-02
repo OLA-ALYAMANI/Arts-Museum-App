@@ -1,26 +1,36 @@
-<div>
-    <label>Title:</label>
-    <%= tour.title %>
-</div>
-<div>
-    <label>Description:</label>
-    <div><%= tour.description %></div>
-</div>
-<div>
-    <label>Tour Guide:</label>
-    <%=tour.tourGuide.firstName%> <%=tour.tourGuide.lastName%>
-</div>
-<div>
-    <label>Date:</label>
-    <%= tour.date %>
-</div>
-<% if (currentUser && currentUser.type == "admin") { %>
+<div class="container">
+    <h1 class="mt-4 mb-3"></h1>
+    <div class="row justify-content-md-center">
+        <div class="col-lg-8 col-sm-6 art-item">
+            <div class="card h-100">
+                <h4 class="card-header text-center">Tour Details</h4>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Title: <%= tour.title %></li>
+                        <li class="list-group-item">Description: <%= tour.description %></li>
+                        <li class="list-group-item">Tour Guide: <%=tour.tourGuide.firstName%>
+                            <%=tour.tourGuide.lastName%></li>
+                        <li class="list-group-item">Date: <%= tour.date %></li>
+                    </ul>
+                </div>
 
-<button>
-    <a href="/tours/<%= tour._id %>/edit">Edit</a>
-</button>
-
-<form method="POST" action="/tours/<%= tour._id %>/delete?_method=DELETE">
-    <button type="submit" value="DELETE">Delete</button>
-</form>
-<% } %>
+                <div class="card-footer text-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <% if (currentUser && currentUser.type == "admin") { %>
+                                <a class="btn btn-info btn-block" href="/tours/<%= tour._id %>/edit">Edit</a>
+                            </div>
+                            <div class="col-sm">
+                                <form method="POST" action="/tours/<%= tour._id %>/delete?_method=DELETE">
+                                    <button class="btn btn-info btn-block" type="submit" value="DELETE">Delete</button>
+                                </form>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
