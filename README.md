@@ -19,22 +19,17 @@ Technology refers to the medium that the rest of the app elements take place in
 ## Home Page
 ![home](https://media.git.generalassemb.ly/user/26796/files/e3a8e780-74c8-11ea-93c1-57c502b3c083)
 
-## Art list Page (As admin)
-![Art Page](https://media.git.generalassemb.ly/user/26796/files/4bf7c900-74c9-11ea-80c5-3f1635a7410f)
-
-## Art list Page (As a regular user)
-![Art Page as regular](https://media.git.generalassemb.ly/user/26796/files/038cdb00-74ca-11ea-9e1d-569c6db07981)
-
-## Show Page (As admin)
-![Show Page as admin](https://media.git.generalassemb.ly/user/26796/files/a47b9600-74ca-11ea-8d34-c5b59301f13c)
-
-## Show Page (As a regular user)
-![Show Page as regular](https://media.git.generalassemb.ly/user/26796/files/c543eb80-74ca-11ea-9787-c9f8211eacb4)
-
-## Add a new Art
-![Add Art](https://media.git.generalassemb.ly/user/26796/files/49966e80-74cb-11ea-8040-f6c2bc66cdae)
+## Admin Pages
+# A. ![Art Page](https://media.git.generalassemb.ly/user/26796/files/4bf7c900-74c9-11ea-80c5-3f1635a7410f)
+# B. ![Show Page as admin](https://media.git.generalassemb.ly/user/26796/files/a47b9600-74ca-11ea-8d34-c5b59301f13c)
+# C. ![Add Art](https://media.git.generalassemb.ly/user/26796/files/49966e80-74cb-11ea-8040-f6c2bc66cdae)
+# D. ![Tour list for admin](https://media.git.generalassemb.ly/user/26796/files/fae9d400-74cc-11ea-84fe-1c06b018aeeb)
 
 
+## Regular User Pages
+# A. ![Art Page as regular](https://media.git.generalassemb.ly/user/26796/files/038cdb00-74ca-11ea-9e1d-569c6db07981)
+# B. ![Show Page as regular](https://media.git.generalassemb.ly/user/26796/files/c543eb80-74ca-11ea-9787-c9f8211eacb)
+# C. ![Tour list for regular](https://media.git.generalassemb.ly/user/26796/files/8b73e480-74cc-11ea-8538-010d199d88e1)
 
 
 # 3- Bugs and Errors
@@ -54,12 +49,3 @@ Technology refers to the medium that the rest of the app elements take place in
 - Jaber Alsalamah
 - Lujen Babunji
 - Ola AlYamani
-
----
-
-## Useful Resources
-
-- **[Git Team Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows)**
-- **[Git Team Cheatsheet](https://jameschambers.co/writing/git-team-workflow-cheatsheet/)**
-- **[nodeJS Example projects](https://github.com/sqreen/awesome-nodejs-projects)**
-- **[MongooseJS documentation](https://mongoosejs.com/docs/index.html)**
