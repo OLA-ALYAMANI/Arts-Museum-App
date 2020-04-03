@@ -33,22 +33,6 @@ There are three type of users: Regular User, Admin and Tour Guide.
     - Create, edit and delete tours.
     - Cancel regular user booking tour
 
-
-## Arts Museum Applicaton Wireframes:
-### Home Page
-![home](https://media.git.generalassemb.ly/user/26796/files/e3a8e780-74c8-11ea-93c1-57c502b3c083)
-
-### Admin Pages
-![Art Page](https://media.git.generalassemb.ly/user/26796/files/4bf7c900-74c9-11ea-80c5-3f1635a7410f)
-![Show Page as admin](https://media.git.generalassemb.ly/user/26796/files/a47b9600-74ca-11ea-8d34-c5b59301f13c)
-![Add Art](https://media.git.generalassemb.ly/user/26796/files/49966e80-74cb-11ea-8040-f6c2bc66cdae)
-![Tour list for admin](https://media.git.generalassemb.ly/user/26796/files/fae9d400-74cc-11ea-84fe-1c06b018aeeb)
-
-### Regular User Pages
-![Art Page as regular](https://media.git.generalassemb.ly/user/26796/files/038cdb00-74ca-11ea-9e1d-569c6db07981)
-![Show Page as regular](https://media.git.generalassemb.ly/user/26796/files/1e614e80-74ce-11ea-831a-8c5ee91cd107)
-![Tour list for regular](https://media.git.generalassemb.ly/user/26796/files/8b73e480-74cc-11ea-8538-010d199d88e1)
-
 ## Simple Database Schema
 ![image](https://media.git.generalassemb.ly/user/26796/files/f6d3ba00-7591-11ea-8da1-480b5736328b)
 
