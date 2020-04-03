@@ -49,6 +49,9 @@ There are three type of users: Regular User, Admin and Tour Guide.
 ![Show Page as regular](https://media.git.generalassemb.ly/user/26796/files/1e614e80-74ce-11ea-831a-8c5ee91cd107)
 ![Tour list for regular](https://media.git.generalassemb.ly/user/26796/files/8b73e480-74cc-11ea-8538-010d199d88e1)
 
+## Simple Database Schema
+![image](https://media.git.generalassemb.ly/user/26796/files/f6d3ba00-7591-11ea-8da1-480b5736328b)
+
 ## Covered Themes: 
 - Command Line
 - Source Control
