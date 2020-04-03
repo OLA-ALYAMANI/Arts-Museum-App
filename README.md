@@ -54,7 +54,7 @@ There are three type of users: Regular User, Admin and Tour Guide.
 - Mongodb
 - Mongoose
 
-## Librariies Used:
+## Libraries Used:
 - **[JQuery](https://jquery.com)**
 - **[Bootstrap](https://www.npmjs.com/package/bootstrap)**
 
