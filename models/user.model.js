@@ -7,6 +7,7 @@ const userSchema = mongoose.Schema({
         type: String,
         enum: ["regular", "tourGuide", "admin"],
         required: true,
+        default: "regular"
     },
 
     firstName: {
